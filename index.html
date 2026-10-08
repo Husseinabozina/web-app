@@ -41,6 +41,66 @@
 @media(max-width:1100px){.nav{gap:14px}.nav a{font-size:11px}.header-actions{gap:6px}.outline-cta{padding:10px}.sector-card{height:410px}.sector-grid{grid-template-columns:repeat(2,1fr)}.intro-split{gap:6%}.intro-portrait img{height:525px}.service-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){.site-header{height:80px;padding:0 5%}.site-header.solid,.site-header.scrolled{height:70px}.logo{min-width:auto}.wordmark strong{font-size:22px}.wordmark small{font-size:7px}.symbol{height:31px;width:31px}.nav{display:none;position:absolute;top:100%;left:0;right:0;background:#f5f2ea;color:var(--ink);padding:25px 7%;box-shadow:0 22px 30px #0002;flex-direction:column;align-items:stretch;gap:0}.nav.open{display:flex}.nav a{font-size:16px;padding:15px 0;border-bottom:1px solid var(--line)}.nav a.active::after{display:none}.menu-toggle{display:block}.header-actions{margin-inline-start:auto}.outline-cta{display:none}.hero{min-height:650px;max-height:850px;height:92svh}.hero-inner{width:90%;margin-top:50px}.hero h1{font-size:clamp(53px,10.2vw,82px);letter-spacing:-3px;line-height:1.44}.hero-sub{font-size:14px;line-height:2}.hero-floor{padding:19px 5%}.hero-floor strong{font-size:18px}.hero-scroll{font-size:9px}.hero-scroll .line{width:20px}.section{padding:80px 6%}.section-head{align-items:start;flex-direction:column;margin-bottom:34px;gap:14px}.section-head h2,.section-title{font-size:43px}.intro-split,.impact,.two-col,.contact-layout,.detail-main{grid-template-columns:1fr;gap:35px}.intro-portrait{order:1}.intro-copy{order:0}.intro-portrait img{height:450px}.intro-stamp{left:0;bottom:-10px}.sector-grid{grid-template-columns:1fr 1fr;gap:9px}.sector-card{height:305px}.sector-card .number{right:12px;top:12px}.sector-card .sector-bottom{right:14px;left:14px;bottom:16px}.sector-card h3{font-size:19px}.sector-card .go{width:34px;height:34px}.manifesto{padding:85px 6%}.manifesto h2{font-size:44px;line-height:1.55}.manifesto-bottom{flex-direction:column;align-items:start}.project-grid{grid-template-columns:1fr;gap:30px}.project-card:nth-child(2),.project-card.wide{margin:0;width:100%}.project-card.wide{grid-column:auto}.project-picture img,.project-card.wide img{height:310px}.project-caption h3{font-size:22px}.service-grid{grid-template-columns:1fr}.service{padding:32px 0;border-inline-end:0}.service h3{margin-top:22px}.impact{padding:80px 6%;gap:35px}.impact img{height:380px}.insight-grid,.partner-panels{grid-template-columns:1fr}.insight-card h3{min-height:0}.cta-band{padding:80px 6%;display:block}.cta-band h2{font-size:52px;margin-bottom:35px}.site-footer{padding:65px 6% 25px}.footer-top{padding-bottom:60px;flex-direction:column}.footer-big{font-size:80px}.footer-columns{grid-template-columns:1fr 1fr;gap:12px}.footer-end{flex-direction:column;margin-top:55px}.inner-hero{height:410px;min-height:410px;padding:0 6% 45px}.inner-hero h1{font-size:52px}.form{padding:25px}.form-row{grid-template-columns:1fr;gap:0}.concept-label{bottom:12px;left:12px;font-size:9px;padding:5px 8px}.detail-shot{height:300px;margin-top:35px}}
 @media(max-width:410px){.sector-grid{grid-template-columns:1fr}.sector-card{height:360px}.hero h1{font-size:49px}.header-actions{gap:2px}.lang-button{padding:6px}.logo{gap:8px}.wordmark strong{font-size:20px}}
+/* MADAR layout stability and restrained motion refinements */
+/* Keep the footer in the normal flow: it must never overlap hero CTAs. */
+.hero{
+  height:auto;
+  min-height:100svh;
+  max-height:none;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  justify-content:space-between;
+  padding-top:clamp(128px,15vh,180px);
+}
+.hero-inner{
+  margin:0 auto;
+  padding-bottom:clamp(58px,8vh,105px);
+}
+.hero-floor{
+  position:relative;
+  inset:auto;
+  margin-top:auto;
+  flex:0 0 auto;
+  min-height:88px;
+}
+/* Gentle entrance choreography, without changing branding or typography. */
+.hero .eyebrow,
+.hero h1,
+.hero .hero-sub,
+.hero .hero-links{
+  animation:madarHeroEnter .85s cubic-bezier(.16,1,.3,1) both;
+}
+.hero .eyebrow{animation-delay:.07s}
+.hero h1{animation-delay:.18s}
+.hero .hero-sub{animation-delay:.34s}
+.hero .hero-links{animation-delay:.46s}
+@keyframes madarHeroEnter{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.reveal{transition:opacity .82s cubic-bezier(.16,1,.3,1),transform .82s cubic-bezier(.16,1,.3,1)}
+@media (hover:hover) and (pointer:fine){
+  .sector-card .sector-bottom{transition:transform .48s cubic-bezier(.16,1,.3,1)}
+  .sector-card:hover .sector-bottom{transform:translateY(-5px)}
+  .project-card .go{transition:transform .32s cubic-bezier(.16,1,.3,1),color .32s}
+  .project-card:hover .go{transform:translate(-4px,-4px);color:#a18052}
+}
+@media (max-height:850px) and (min-width:761px){
+  .hero{padding-top:clamp(115px,14vh,145px)}
+  .hero h1{font-size:clamp(63px,7.2vw,112px);line-height:1.22;margin:24px 0 18px}
+  .hero-sub{line-height:1.85;margin-bottom:28px}
+  .hero-inner{padding-bottom:50px}
+}
+@media (max-width:760px){
+  .hero{height:auto;min-height:100svh;max-height:none;padding-top:clamp(118px,16vh,160px)}
+  .hero-inner{margin:0 auto;padding-bottom:64px}
+  .hero-floor{min-height:76px}
+}
+@media (max-width:410px){
+  .hero-floor{gap:10px}
+  .hero-floor>div:first-child{display:none}
+}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
