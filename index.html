@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#182523">
-<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link rel="icon" type="image/png" href="./madar_original_logo_exact_crop.png">
 <meta name="description" content="مدار — تصور تصميمي تفاعلي لموقع مجموعة سعودية متعددة القطاعات. هوية مؤسسية، مشاريع، قطاعات أعمال وتجربة عربية وإنجليزية.">
 <title>مَدَار | MADAR GROUP — رؤية تتجاوز المدى</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -102,20 +102,47 @@
   .hero-floor>div:first-child{display:none}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
-/* Arabic MADAR identity — concept 03 */
-.madar-logo{display:inline-flex;align-items:center;gap:3px;min-width:145px;direction:ltr;white-space:nowrap}
-.madar-orbit{display:block;flex:none;width:37px;height:52px;color:var(--copper);overflow:visible}
-.madar-lockup{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;line-height:1;direction:rtl}
-.madar-arabic{font-family:"IBM Plex Sans Arabic",sans-serif;font-weight:600;font-size:32px;letter-spacing:-2.2px;line-height:1.25}
-.madar-english{font-family:Manrope,Arial,sans-serif;font-size:8px;font-weight:700;letter-spacing:2.1px;line-height:1.4;direction:ltr}
-@media(max-width:1100px){.madar-logo{min-width:125px}.madar-arabic{font-size:29px}.madar-orbit{width:32px;height:46px}.madar-english{font-size:7px;letter-spacing:1.7px}}
-@media(max-width:760px){.madar-logo{min-width:0;gap:1px}.madar-arabic{font-size:27px}.madar-orbit{width:30px;height:43px}.madar-english{font-size:6.5px;letter-spacing:1.6px}}
-@media(max-width:360px){.madar-arabic{font-size:24px}.madar-orbit{width:25px;height:37px}.madar-english{font-size:6px;letter-spacing:1.2px}}
+/* Use the ORIGINAL, uploaded concept-03 artwork without reconstructing any letter or arc. */
+.site-header{
+  background:#f0ece5;
+  color:var(--ink);
+  border-bottom:1px solid rgba(20,35,32,.12);
+}
+.site-header.scrolled,.site-header.solid{background:#f0ece5;color:var(--ink)}
+.madar-logo{
+  display:inline-flex;
+  align-items:center;
+  justify-content:flex-start;
+  flex:0 0 auto;
+  min-width:0;
+  gap:0;
+  direction:ltr;
+  line-height:0;
+}
+.madar-exact-image{
+  display:block;
+  height:92px;
+  width:auto;
+  max-width:none;
+  object-fit:contain;
+}
+.site-header.scrolled .madar-exact-image,
+.site-header.solid .madar-exact-image{height:69px}
+@media(max-width:760px){
+  .madar-exact-image{height:70px}
+  .site-header.scrolled .madar-exact-image,
+  .site-header.solid .madar-exact-image{height:60px}
+}
+@media(max-width:360px){
+  .madar-exact-image{height:65px}
+  .site-header.scrolled .madar-exact-image,
+  .site-header.solid .madar-exact-image{height:57px}
+}
 </style>
 </head>
 <body>
 <header class="site-header" id="header">
-<a class="logo madar-logo" href="#home" aria-label="MADAR GROUP — الرئيسية"><svg class="madar-orbit" viewBox="0 0 64 76" aria-hidden="true" focusable="false"><path d="M55 8C37 -1 13 12 7 35C2 54 11 67 26 72" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><path d="M55 8C44 3 33 5 25 9" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" opacity=".55"/></svg><span class="madar-lockup"><strong class="madar-arabic">مدار</strong><span class="madar-english">MADAR GROUP</span></span></a>
+<a class="logo madar-logo" href="#home" aria-label="MADAR GROUP — الرئيسية"><img class="madar-exact-image" src="./madar_original_logo_exact_crop.png" alt="مدار — MADAR GROUP" width="505" height="370" decoding="async" fetchpriority="high"></a>
 <nav class="nav" id="nav" aria-label="Main navigation">
 <a href="#home" data-nav="home"><span class="ar">الرئيسية</span><span class="en">Home</span></a>
 <a href="#about" data-nav="about"><span class="ar">من نحن</span><span class="en">About</span></a>
